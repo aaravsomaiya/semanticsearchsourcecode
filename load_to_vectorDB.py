@@ -12,7 +12,7 @@ from qdrant_client.http.models import TextIndexType, PointStruct
 
 from load_and_query_quadrant import collection
 
-openai = AsyncOpenAI(api_key="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")
+openai = AsyncOpenAI(api_key=#AddAPIKEY)
 
 collection_name = "spotlight_main"
 items = []
@@ -91,8 +91,8 @@ loop.run_until_complete(get_items_from_registry())
 print("Got Items: ", len(items), items[0])
 loop.run_until_complete(populate_embeddings())
 
-qdrant_client = QdrantClient(url="https://5631a41d-0eba-4ab2-be75-bd57f8ee752b.us-west-2-0.aws.cloud.qdrant.io:6333",
-                      api_key="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3MiOiJtIn0.NIva9xCznN5dVCSBqgdIzH0RF8CXWtiGmBK1r96GQGk")
+qdrant_client = QdrantClient(url=#ADDURL,
+                      api_key=#ADDAPIKEY)
 
 qdrant_client.recreate_collection(
     collection_name=collection_name,
@@ -127,4 +127,5 @@ print("Total number of points: ", len(points))
 for i in range(0, len(points), 200):
     print(f"Upserting points {i} to {i+200}")
     qdrant_client.upsert(collection_name="spotlight_main", points=points[i:i+200] )
+
 print("Done")
