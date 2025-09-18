@@ -1,1 +1,1 @@
-This is the code for a semantic search model using Vector DB and the openAI API.
+This is the code for a semantic search model using Vector DB and the openAI API. Load and query quadrant takes values from a CSV or resources registry and uploads them to quadrant. Another method I used is through the load to VectorDB, both files and upload types are present. 
